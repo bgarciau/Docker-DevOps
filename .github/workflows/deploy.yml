@@ -23,7 +23,7 @@ jobs:
           docker build -t ghcr.io/${{ secrets.GH_USERNAME }}/fastapi-app:latest .
           docker push ghcr.io/${{ secrets.GH_USERNAME}}/fastapi-app:latest
   deploy-to-ec2:
-    needs: build-and-push
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: SSH into EC2 and deploy container
